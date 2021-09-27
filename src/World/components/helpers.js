@@ -1,7 +1,7 @@
 import { AxesHelper, GridHelper } from 'https://cdn.skypack.dev/three@0.132.2';
 
 function createAxesHelper() {
-  const helper = new AxesHelper(3);
+  const helper = new AxesHelper(1);
   helper.position.set(-3.5, 0, -3.5);
   return helper;
 }

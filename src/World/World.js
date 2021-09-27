@@ -4,8 +4,8 @@ import {
   createGridHelper,
 } from './components/helpers.js';
 import { createLights } from './components/lights.js';
-// import { createMeshGroup } from './components/meshGroup.js';
 import { createScene } from './components/scene.js';
+import { Train } from './components/Train/Train.js';
 
 import { createControls } from './systems/controls.js';
 import { createRenderer } from './systems/renderer.js';
@@ -27,14 +27,13 @@ class World {
 
     const controls = createControls(camera, renderer.domElement);
     const { ambientLight, mainLight } = createLights();
-    // const meshGroup = createMeshGroup();
+    const train = new Train();
 
-    // loop.updatables.push(controls, meshGroup);
-    // scene.add(ambientLight, mainLight, meshGroup);
+    loop.updatables.push(controls, train);
+    scene.add(ambientLight, mainLight, train);
 
     const resizer = new Resizer(container, camera, renderer);
 
-    // add the helpers to the scene
     scene.add(createAxesHelper(), createGridHelper());
   }
 
